@@ -7,7 +7,7 @@ language: node_js
 #node_js versions
 
 node_js:
-- "6"
+- "6.11.2"
 
 #before running the build
 
@@ -19,7 +19,7 @@ before-script:
 #actual build step
 script: 
 - ng build --prod
-
+  
 #build only on push not on pull requests.
 
 deploy:
