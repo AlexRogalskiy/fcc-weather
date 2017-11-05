@@ -7,32 +7,32 @@ language: node_js
 #node_js versions
 
 node_js:
-- "6.11.2"
+    - "6.11.2"
 
 #before running the build
 
 before-script:
-- npm install #install all dependencies
+    - npm install #install all dependencies
 
-- npm install -g surge #global surge install
+    - npm install -g surge #global surge install
 
 #actual build step
 script: 
-- ng build -prod
+    - ng build -prod
   
 #build only on push not on pull requests.
 
 deploy:
-provider: surge
-skip_cleanup: true
-project: ./dist/  #build output path
+    provider: surge
+    skip_cleanup: true
+    project: ./dist/  #build output path
 
-domain: gaping-feeling.surge.sh  #surge domain
+    domain: gaping-feeling.surge.sh  #surge domain
 
 #notifications
 
 notifications:
-email:
-on_success: change #default: change
+    email:
+        on_success: change #default: change
 
-on_failure: change #default: change
+        on_failure: change #default: change
