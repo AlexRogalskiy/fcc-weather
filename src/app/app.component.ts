@@ -19,11 +19,13 @@ export class AppComponent implements OnInit {
 	rainy: boolean = false;
 	snowy: boolean = false;
 	thunder: boolean = false;
+	error: boolean = false;
+	errorMsg: string;
 	
 	constructor(private restService: RestService) {}
 	
 	private getLocation() {
-		if (window.navigator.geolocation) {
+		if (window.navigator && window.navigator.geolocation) {
 			window.navigator.geolocation.getCurrentPosition(
 			(position) => {
 				this.geoLocation = position;
@@ -31,6 +33,8 @@ export class AppComponent implements OnInit {
 				this.getWeather();
 			}, (err) => {
 				console.log(err);
+				this.error = true;
+				this.errorMsg = "Error:  ;Browser not supported or API offline..."
 			});
 		}
 	}

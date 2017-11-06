@@ -6,7 +6,7 @@
 			</div>			
 		</div>
 	</div>
-	<div class="row" *ngIf="weather !== null && weather !== undefined">
+	<div class="row" *ngIf="weather !== null && weather !== undefined && !error">
 		<div class="col-md-8 col-md-push-2 text-center">
 			<h2>{{weather.name}} {{weather.sys.country}}</h2>
 			<h2 class="temp" (click)="convert()">{{currentTemp}} &deg;<span *ngIf="cel">C</span><span *ngIf="!cel">F</span></h2>
@@ -18,6 +18,11 @@
 					<div class="icon" *ngIf="snowy"><i class="fa fa-snowflake-o fa-4x" aria-hidden="true"></i></div>
 					<div class="icon" *ngIf="thunder"><i class="fa fa-bolt fa-4x" aria-hidden="true"></i></div>
 					
+		</div>
+	</div>
+	<div class="row" *ngIf="error">
+		<div class="col-md-4 col-md-push-4">
+				<p>{{errorMsg}}</p>
 		</div>
 	</div>
 </div>

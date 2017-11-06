@@ -33,6 +33,8 @@ deploy:
 
 notifications:
     email:
-        on_success: change #default: change
+        on_success: 
+            change #default: change
 
-        on_failure: change #default: change
+        on_failure: 
+            change #default: change
